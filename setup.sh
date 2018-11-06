@@ -68,6 +68,8 @@ ok
 running "Configuring symlinks"
 ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
+ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
+ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
 ln -s $HOME/dotfiles/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
 ln -s $HOME/dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 ok
