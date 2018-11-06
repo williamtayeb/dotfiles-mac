@@ -1,4 +1,4 @@
-Includes configurations for:
+There are no prerequisites for these dotfiles and will therefore work on a brand new macOS system. The following is a list of some of the noteworthy packages that are automatically installed and configured:
 
 * neovim
 * kitty
@@ -8,7 +8,7 @@ Includes configurations for:
 # Installation
 
 ```
-git clone --recurse-submodules https://github.com/williamtayeb/dotfiles ~/.dotfiles
+git clone https://github.com/williamtayeb/dotfiles ~/.dotfiles
 ~/dotfiles/setup.sh
 ```
 
