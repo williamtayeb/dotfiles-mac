@@ -1,0 +1,6 @@
+[user]
+    name = William Tayeb
+    email = williamtayeb@gmail.com
+[core]
+    editor = nvim
+    excludefile = ~/.gitignore
