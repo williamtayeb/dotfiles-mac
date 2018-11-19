@@ -24,3 +24,11 @@ add-zsh-hook -Uz chpwd (){ ls; }
 
 # 10ms limit for key sequences
 KEYTIMEOUT=1
+
+# Set nvim as the default editor
+export VISUAL=nvim
+export EDITOR="$VISUAL"
+
+# Notes path
+export WT_NOTES_PATH=$HOME/Google\ Drive/notes
+

@@ -28,8 +28,8 @@ set timeoutlen=1000 ttimeoutlen=0   " Eliminate delays on ESC in vim
 set backspace=indent,eol,start      " Proper backspace behavior
 
 " Move vertically by visual line
-nnoremap j gj
-nnoremap k gk
+" nnoremap j gj
+" nnoremap k gk
 
 if executable('ag')
 	let g:ackprg = 'ag --vimgrep'
