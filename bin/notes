@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Notes options
+journals_path="${NOTES}/journals"
+ext=".md"
+
+# Check if the notes path exists
+if [[ ! -d "$NOTES" ]] ; then
+    echo "Notes path $NOTES does not exist"
+else
+    # If there are no arguments then assume that we are handling journals
+    if [[ $# -eq 0 ]] ; then
+        # Get the current date
+        date=`date +%d-%m-%y`
+
+        # Open notes/journals/date.ext with the default environment editor or vi
+        "${EDITOR:-vi}" "${journals_path}/${date}${ext}"
+    elif [[ $# -eq 1 ]] ; then
+        if [[ $1 == "-l" ]] ; then
+            ls "$NOTES"
+        else
+            "${EDITOR:-vi}" "${NOTES}/${1}${ext}"
+        fi
+    else
+        filename=${@:$#} # last parameter 
+        directories=${*%${!#}} # all parameters except the last
+        path=""
+
+        for directory in $directories
+        do
+            path="${path}${directory}/"
+        done
+
+        "${EDITOR:-vi}" "${NOTES}/${path}${filename}${ext}"
+    fi
+fi
+

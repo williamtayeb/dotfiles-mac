@@ -11,6 +11,9 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+autoload bashcompinit
+bashcompinit
+
 # Pure
 autoload -U promptinit; promptinit
 prompt pure
@@ -30,5 +33,11 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Notes path
-export WT_NOTES_PATH=$HOME/Google\ Drive/notes
+export NOTES=$HOME/Google\ Drive/notes
+
+# Completion
+source ~/.bash_completion
+
+# Add user bin to path
+export PATH=$PATH:$HOME/bin
 
