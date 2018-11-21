@@ -18,6 +18,10 @@ else
     elif [[ $# -eq 1 ]] ; then
         if [[ $1 == "-l" ]] ; then
             ls "$NOTES"
+        elif [[ $1 == "-p" ]] ; then
+            date_yesterday=`gdate +%d-%m-%y -d "yesterday"`
+
+            "${EDITOR:-vi}" "${journals_path}/${date_yesterday}${ext}"
         else
             "${EDITOR:-vi}" "${NOTES}/${1}${ext}"
         fi

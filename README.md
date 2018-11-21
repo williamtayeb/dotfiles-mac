@@ -4,6 +4,7 @@ There are no prerequisites for these dotfiles and will therefore work on a brand
 * kitty
 * zsh
 * git
+* notes
 
 # Installation
 

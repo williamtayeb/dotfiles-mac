@@ -55,6 +55,16 @@ running "Installing pure-prompt"
 npm install --global pure-prompt
 ok
 
+# Docker
+running "Installing Docker for Mac"
+brew cask install docker
+ok
+
+# Docker
+running "Installing GNU core utilities"
+brew install coreutils
+ok
+
 echo
 
 # Configure symlinks
