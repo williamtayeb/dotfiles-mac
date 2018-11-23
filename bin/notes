@@ -26,16 +26,21 @@ else
             "${EDITOR:-vi}" "${NOTES}/${1}${ext}"
         fi
     else
-        filename=${@:$#} # last parameter 
-        directories=${*%${!#}} # all parameters except the last
+        last_param=${@:$#} # last parameter 
+        other_params=${*%${!#}} # all parameters except the last
+
         path=""
 
-        for directory in $directories
+        for directory in $other_params
         do
             path="${path}${directory}/"
         done
 
-        "${EDITOR:-vi}" "${NOTES}/${path}${filename}${ext}"
+        if [[ $last_param == "-l" ]] ; then
+            ls "$NOTES/${path}"
+        else
+            "${EDITOR:-vi}" "${NOTES}/${path}${last_param}${ext}"
+        fi
     fi
 fi
 
