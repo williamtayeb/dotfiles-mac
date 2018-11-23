@@ -3,7 +3,6 @@
 # Notes options
 ext=".md"
 editor="${EDITOR:-vi}"
-backup_path="${NOTES}/backup"
 journals_path="${NOTES}/journals"
 journals_encrypt=1
 typora="open -a typora -W"
@@ -25,7 +24,7 @@ open_file() {
 
         # Store a backup of the file and remove the
         # exiting one.
-        cp "${2}.enc" "${backup_path}/${2}.enc"
+        cp "${2}.enc" "${2}.enc.backup"
         rm "${2}.enc"
     fi
 
