@@ -65,6 +65,11 @@ running "Installing GNU core utilities"
 brew install coreutils
 ok
 
+# ssh-vault
+running "Installing ssh-vault"
+brew install ssh-vault
+ok
+
 echo
 
 # Configure symlinks

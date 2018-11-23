@@ -1,48 +1,92 @@
 #!/bin/bash
 
 # Notes options
-journals_path="${NOTES}/journals"
 ext=".md"
+editor="${EDITOR:-vi}"
+backup_path="${NOTES}/backup"
+journals_path="${NOTES}/journals"
+journals_encrypt=1
+typora="open -a typora -W"
 
 # Check if the notes path exists
 if [[ ! -d "$NOTES" ]] ; then
     echo "Notes path $NOTES does not exist"
-else
-    # If there are no arguments then assume that we are handling journals
-    if [[ $# -eq 0 ]] ; then
-        # Get the current date
-        date=`date +%d-%m-%y`
-
-        # Open notes/journals/date.ext with the default environment editor or vi
-        "${EDITOR:-vi}" "${journals_path}/${date}${ext}"
-    elif [[ $# -eq 1 ]] ; then
-        if [[ $1 == "-l" ]] ; then
-            ls "$NOTES"
-        elif [[ $1 == "-t" ]] ; then
-            tree "$NOTES"
-        elif [[ $1 == "-p" ]] ; then
-            date_yesterday=`gdate +%d-%m-%y -d "yesterday"`
-
-            "${EDITOR:-vi}" "${journals_path}/${date_yesterday}${ext}"
-        else
-            "${EDITOR:-vi}" "${NOTES}/${1}${ext}"
-        fi
-    else
-        last_param=${@:$#} # last parameter 
-        other_params=${*%${!#}} # all parameters except the last
-
-        path=""
-
-        for directory in $other_params
-        do
-            path="${path}${directory}/"
-        done
-
-        if [[ $last_param == "-l" ]] ; then
-            ls "$NOTES/${path}"
-        else
-            "${EDITOR:-vi}" "${NOTES}/${path}${last_param}${ext}"
-        fi
-    fi
+    exit 1
 fi
 
+open_file() {
+    if [[ -f "${2}.enc" ]] ; then 
+        # Decrypt the file
+        ssh-vault -o "$2" view "${2}.enc"
+        
+        # Exit if the passphrase fails to avoid deleting
+        # the encrypted file prematurely.
+        [[ $? -ne 0 ]] && exit 1
+
+        # Store a backup of the file and remove the
+        # exiting one.
+        cp "${2}.enc" "${backup_path}/${2}.enc"
+        rm "${2}.enc"
+    fi
+
+    touch "$2"
+    $1 "$2"
+
+    cat "$2" | ssh-vault -k "$HOME/.ssh/id_rsa.pub" create "${2}.enc"
+    rm "$2"
+}
+
+open_journal() {
+    path="${journals_path}/${2}${ext}"
+
+    if [[ $1 ]] ; then
+        open_file "$typora" "$path"
+    else
+        open_file "$editor" "$path"
+    fi
+}
+
+open_current_journal() {
+    # Get the current date
+    date=`date +%d-%m-%y`
+    open_journal "$1" "$date"
+}
+
+open_previous_journal() {
+    date_yesterday=`gdate +%d-%m-%y -d "yesterday"`
+    open_journal "$1" "$date_yesterday"
+}
+
+# If there are no arguments then assume that we are handling journals
+if [[ $# -eq 0 ]] ; then
+    open_current_journal
+elif [[ $# -eq 1 ]] ; then
+    if      [[ $1 == "-l" ]] ; then ls "$NOTES"
+    elif    [[ $1 == "-b" ]] ; then tree "$NOTES"
+    elif    [[ $1 == "-p" ]] ; then open_previous_journal
+    elif    [[ $1 == "-t" ]] ; then open_current_journal 1
+    else
+        open_file "$editor" "${NOTES}/${1}${ext}"
+    fi
+else
+    [[ $1 == "-pt" ]] && open_previous_journal 1 && exit 1
+
+    last_param=${@:$#} # last parameter
+    other_params=${*%${!#}} # all parameters except the last
+
+    path="${NOTES}"
+
+    for param in $other_params
+    do
+        path="${path}/${param}"
+    done
+
+    if [[ $last_param == "-l" ]] ; then
+        ls "${path}"
+    elif [[ $last_param == "-t" ]] ; then
+        open_file "$typora" "${path}${ext}"
+    else
+        mkdir -p "${path}"
+        open_file "$editor" "${path}/${last_param}${ext}"
+    fi
+fi
