@@ -18,6 +18,8 @@ else
     elif [[ $# -eq 1 ]] ; then
         if [[ $1 == "-l" ]] ; then
             ls "$NOTES"
+        elif [[ $1 == "-t" ]] ; then
+            tree "$NOTES"
         elif [[ $1 == "-p" ]] ; then
             date_yesterday=`gdate +%d-%m-%y -d "yesterday"`
 
