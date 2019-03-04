@@ -44,6 +44,8 @@ function! GetVimPlugs()
   Plug 'rking/ag.vim'
   Plug 'kien/ctrlp.vim'
   Plug 'joshdick/onedark.vim'
+  Plug 'fxn/vim-monochrome'
+  Plug 'lurst/austere.vim'
 endfunc
 
 " Automatically install vim-plug for either vim or nvim
@@ -87,4 +89,8 @@ endif
 let g:onedark_termcolors=256
 let g:onedark_terminal_italics=1
 
-colorscheme onedark
+if (has("nvim"))
+    colorscheme onedark
+else
+    colorscheme austere
+endif
