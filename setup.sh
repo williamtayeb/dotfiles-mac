@@ -70,6 +70,16 @@ running "Installing ssh-vault"
 brew install ssh-vault
 ok
 
+# Yarn
+running "Installing yarn"
+brew install yarn --without-node
+ok
+
+# IINA
+running "Installing IINA"
+brew cask install iina
+ok
+
 echo
 
 # Configure symlinks

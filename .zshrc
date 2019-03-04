@@ -41,5 +41,8 @@ source ~/.bash_completion
 # Add user bin to path
 export PATH=$PATH:$HOME/bin
 
-# Typora alias
+# Alias
 alias typora="open -a typora"
+
+alias ga="git add -A"
+alias gs="git status"
