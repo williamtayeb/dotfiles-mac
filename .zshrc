@@ -46,3 +46,15 @@ alias typora="open -a typora"
 
 alias ga="git add -A"
 alias gs="git status"
+
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/williamtayeb/Downloads/Resources/gcs-private-key.json"
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/williamtayeb/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/williamtayeb/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/williamtayeb/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/williamtayeb/google-cloud-sdk/completion.zsh.inc'; fi
+
+export PATH=/Developer/NVIDIA/CUDA-10.1/bin${PATH:+:${PATH}}
+export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-10.1/lib\
+    ${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}
