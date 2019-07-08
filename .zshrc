@@ -55,6 +55,6 @@ if [ -f '/Users/williamtayeb/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/wi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/williamtayeb/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/williamtayeb/google-cloud-sdk/completion.zsh.inc'; fi
 
-export PATH=/Developer/NVIDIA/CUDA-10.1/bin${PATH:+:${PATH}}
-export DYLD_LIBRARY_PATH=/Developer/NVIDIA/CUDA-10.1/lib\
-    ${DYLD_LIBRARY_PATH:+:${DYLD_LIBRARY_PATH}}
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
