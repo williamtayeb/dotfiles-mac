@@ -18,9 +18,6 @@ bashcompinit
 autoload -U promptinit; promptinit
 prompt pure
 
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-
 # Automatically ls after cd
 autoload -U add-zsh-hook
 add-zsh-hook -Uz chpwd (){ ls; }

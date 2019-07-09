@@ -80,6 +80,12 @@ running "Installing IINA"
 brew cask install iina
 ok
 
+# tmux
+running "Installing tmux"
+brew install tmux
+ok
+
+
 echo
 
 # Configure symlinks
