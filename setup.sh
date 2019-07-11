@@ -101,6 +101,7 @@ ok
 
 running "Configuring symlinks"
 ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
+ln -s $HOME/dotfiles/.williamrc $HOME/.williamrc
 ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
 ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
