@@ -26,7 +26,7 @@ add-zsh-hook -Uz chpwd (){ ls; }
 KEYTIMEOUT=1
 
 # Set nvim as the default editor
-export VISUAL=nvim
+export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Notes path
