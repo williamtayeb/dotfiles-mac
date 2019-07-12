@@ -46,29 +46,13 @@ function! GetVimPlugs()
   Plug 'joshdick/onedark.vim'
   Plug 'fxn/vim-monochrome'
   Plug 'lurst/austere.vim'
+  Plug 'atelierbram/vim-colors_atelier-schemes'
+  Plug 'vim-airline/vim-airline'
 endfunc
 
-" Automatically install vim-plug for either vim or nvim
-function! InitializeVimPlug(nvim)
-	let l:vimPlugConfig = "~/.vim/autoload/plug.vim"
-	let l:vimPlugPluginsPath = "~/.vim/plugged"
-
-	if a:nvim
-		let l:vimPlugConfig = "~/.local/share/nvim/site/autoload/plug.vim"
-		let l:vimPlugPluginsPath = "~/.local/share/nvim/plugged"
-	endif
-
-	if empty(glob(l:vimPlugConfig))
-	  execute 'silent !curl -fLo ' . l:vimPlugConfig . ' --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-      so $MYVIMRC
-	endif
-
-	call plug#begin(l:vimPlugPluginsPath)
-	call GetVimPlugs()
-	call plug#end()
-endfunc
-
-call InitializeVimPlug(has('nvim'))
+call plug#begin('~/.vim/plugged')
+call GetVimPlugs()
+call plug#end()
 
 " CtrlP Configuration
 let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -76,21 +60,11 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrl_working_path_mode = 0
 let g:ctrl_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-" Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-if (empty($TMUX))
-    if (has("nvim"))
-        let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    endif
-    if (has("termguicolors"))
-        set termguicolors
-    endif
-endif
+set termguicolors
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set background=dark
 
-let g:onedark_termcolors=256
-let g:onedark_terminal_italics=1
-
-if (has("nvim"))
-    colorscheme onedark
-else
-    colorscheme austere
-endif
+colorscheme Atelier_SulphurpoolDark
+let g:airline_theme='Atelier_SulphurpoolDark'
+let g:airline_powerline_fonts = 1

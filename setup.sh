@@ -90,7 +90,6 @@ echo
 
 # Configure symlinks
 running "Clearing default dotfiles"
-rm -rf $HOME/.zshrc
 rm -rf $HOME/.vimrc
 rm -rf $HOME/.config/kitty/kitty.conf
 rm -rf $HOME/.config/nvim/init.vim
@@ -100,7 +99,6 @@ rm -rf $HOME/bin
 ok
 
 running "Configuring symlinks"
-ln -s $HOME/dotfiles/.zshrc $HOME/.zshrc
 ln -s $HOME/dotfiles/.williamrc $HOME/.williamrc
 ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
 ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
