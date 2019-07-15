@@ -1,14 +1,15 @@
 " Enabling filetype support provides filetype-specific indenting, syntax
 " highlighting, omni-completion and other useful settings.
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 syntax on
 
 set number 		" Show current line number
 set relativenumber 	" Show relative line numbers
 
-set tabstop=4		" Number of visual spaces per tab
+set tabstop=2		" Number of visual spaces per tab
 set softtabstop=0	" Number of visual spaces per tab
-set shiftwidth=4	" Indents will have a width of 4
+set shiftwidth=2	" Indents will have a width of 4
 set expandtab		" Tabs are spaces
 
 set autoindent      " Minimal automatic indenting for any filetype.
@@ -40,19 +41,37 @@ let mapleader=","
 
 nnoremap <leader>a :Ack!<Space>
 
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+map <C-n> :NERDTreeToggle<CR>
+
 function! GetVimPlugs()
   Plug 'rking/ag.vim'
   Plug 'kien/ctrlp.vim'
+  Plug 'scrooloose/nerdtree'
+  Plug 'pangloss/vim-javascript'
+  Plug 'mxw/vim-jsx'
+  Plug 'elzr/vim-json'
+  Plug 'vim-airline/vim-airline'
+  Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
+  Plug 'BrandonRoehl/auto-omni'
+
   Plug 'joshdick/onedark.vim'
   Plug 'fxn/vim-monochrome'
   Plug 'lurst/austere.vim'
   Plug 'atelierbram/vim-colors_atelier-schemes'
-  Plug 'vim-airline/vim-airline'
+  Plug 'ntk148v/vim-horizon'
 endfunc
 
 call plug#begin('~/.vim/plugged')
 call GetVimPlugs()
 call plug#end()
+
+let g:javascript_plugin_flow = 1
+let g:javascript_plugin_jsdoc = 1
 
 " CtrlP Configuration
 let g:ctrlp_match_window = 'bottom,order:ttb'
@@ -60,9 +79,11 @@ let g:ctrlp_switch_buffer = 0
 let g:ctrl_working_path_mode = 0
 let g:ctrl_user_command = 'ag %s -l --nocolor --hidden -g ""'
 
-set termguicolors
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+set termguicolors
 set background=dark
 
 colorscheme Atelier_SulphurpoolDark

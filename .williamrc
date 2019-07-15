@@ -4,10 +4,14 @@ export EDITOR="$VISUAL"
 # Notes path
 export NOTES=$HOME/Google\ Drive/notes
 
+export PATH=$PATH:$HOME/bin
+
 # Alias
 alias typora="open -a typora"
 alias ga="git add -A"
 alias gs="git status"
+alias vim="nvim"
+alias ctags="`brew --prefix`/bin/ctags"
 
 export GOOGLE_APPLICATION_CREDENTIALS="/Users/williamtayeb/Downloads/Resources/gcs-private-key.json"
 
@@ -20,3 +24,5 @@ if [ -f '/Users/williamtayeb/google-cloud-sdk/completion.zsh.inc' ]; then . '/Us
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
+
+echo
