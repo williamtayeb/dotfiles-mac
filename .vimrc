@@ -58,6 +58,7 @@ function! GetVimPlugs()
   Plug 'vim-airline/vim-airline'
   Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
   Plug 'BrandonRoehl/auto-omni'
+  Plug 'lervag/vimtex'
 
   Plug 'joshdick/onedark.vim'
   Plug 'fxn/vim-monochrome'
@@ -69,6 +70,12 @@ endfunc
 call plug#begin('~/.vim/plugged')
 call GetVimPlugs()
 call plug#end()
+
+let g:tex_flavor='latex'
+let g:vimtex_view_method='zathura'
+let g:vimtex_quickfix_mode=0
+set conceallevel=1
+let g:tex_conceal='abdmg'
 
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1

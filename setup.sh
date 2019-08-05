@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Include helpers for colorized echo
-source $HOME/dotfiles/lib/echos.sh
+source ./lib/echos.sh
 
 bot "Hi! I'm going to setup your entire development environment. Hold on tight..."
 echo
@@ -38,11 +38,6 @@ ok
 
 running "Installing the_silver_searcher"
 brew install the_silver_searcher
-ok
-
-# Kitty Terminal Emulator
-running "Installing kitty"
-curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 ok
 
 # Adobe Source Code Pro
@@ -85,30 +80,39 @@ running "Installing tmux"
 brew install tmux
 ok
 
+# iterm2
+running "Installing iterm2"
+brew cask install iterm2
+ok
+
+# oh-my-zsh
+running "Installing oh-my-zsh"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+ok
+
 
 echo
+
+DOTFILES="$HOME/Repositories/dotfiles"
 
 # Configure symlinks
 running "Clearing default dotfiles"
 rm -rf $HOME/.vimrc
-rm -rf $HOME/.config/kitty/kitty.conf
+rm -rf $HOME/.williamrc
+rm -rf $HOME/.gitignore
+rm -rf $HOME/.gitconfig
 rm -rf $HOME/.config/nvim/init.vim
-rm -rf $HOME/.bash_completion
-rm -rf $HOME/.bash_completion.d
-rm -rf $HOME/bin
 ok
 
 running "Configuring symlinks"
-ln -s $HOME/dotfiles/.williamrc $HOME/.williamrc
-ln -s $HOME/dotfiles/.vimrc $HOME/.vimrc
-ln -s $HOME/dotfiles/.gitignore $HOME/.gitignore
-ln -s $HOME/dotfiles/.gitconfig $HOME/.gitconfig
-ln -s $HOME/dotfiles/.config/kitty/kitty.conf $HOME/.config/kitty/kitty.conf
-ln -s $HOME/dotfiles/.config/nvim/init.vim $HOME/.config/nvim/init.vim
-ln -s $HOME/dotfiles/.bash_completion $HOME/.bash_completion
-ln -s $HOME/dotfiles/.bash_completion.d $HOME/.bash_completion.d
-ln -s $HOME/dotfiles/bin $HOME/bin
+ln -s $DOTFILES/.williamrc $HOME/.williamrc
+ln -s $DOTFILES/.vimrc $HOME/.vimrc
+ln -s $DOTFILES/.gitignore $HOME/.gitignore
+ln -s $DOTFILES/.gitconfig $HOME/.gitconfig
+
+mkdir -p $HOME/.config/nvim/init.vim
+ln -s $DOTFILES/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 ok
 
 echo
-bot "All done. Kill this terminal and launch kitty."
+bot "All done. Kill this terminal."
