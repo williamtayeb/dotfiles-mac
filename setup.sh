@@ -114,5 +114,7 @@ mkdir -p $HOME/.config/nvim/init.vim
 ln -s $DOTFILES/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 ok
 
+echo "source ~/.williamrc" >> $HOME/.zshrc
+
 echo
 bot "All done. Kill this terminal."
