@@ -67,7 +67,7 @@ ok
 
 # Yarn
 running "Installing yarn"
-brew install yarn --without-node
+brew install yarn
 ok
 
 # IINA
