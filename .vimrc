@@ -1,7 +1,6 @@
 " Enabling filetype support provides filetype-specific indenting, syntax
 " highlighting, omni-completion and other useful settings.
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
 syntax on
 
 set number 		" Show current line number
@@ -56,8 +55,6 @@ function! GetVimPlugs()
   Plug 'mxw/vim-jsx'
   Plug 'elzr/vim-json'
   Plug 'vim-airline/vim-airline'
-  Plug 'ternjs/tern_for_vim', { 'do' : 'npm install' }
-  Plug 'BrandonRoehl/auto-omni'
   Plug 'lervag/vimtex'
 
   Plug 'joshdick/onedark.vim'
