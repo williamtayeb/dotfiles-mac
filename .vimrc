@@ -71,26 +71,23 @@ let g:ycm_key_list_previous_completion=[]
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
 
-" CtrlP Configuration
-let g:ctrlp_match_window = 'bottom,order:ttb'
-let g:ctrlp_switch_buffer = 0
-let g:ctrl_working_path_mode = 0
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-" Ag
-let g:ag_working_path_mode="r"
+" CtrlP
+let g:ctrlp_working_path_mode = 'c'
 
 if executable('ag')
-	let g:ackprg = 'ag --vimgrep'
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
 
-  " Use ag over grep "
-  set grepprg=ag\ --nogroup\ --nocolor\ --column
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore "
-  let g:ctrl_user_command = 'ag %s -l --nocolor --hidden -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache "
+  " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
+
+  " bind K to grep word under cursor
+  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+  "command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
+  nnoremap \ :Ag<SPACE>
 endif
 
 " For simple sizing of splits.
@@ -104,6 +101,13 @@ nnoremap <Leader>pt :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>pv :NERDTreeFind<CR>
 nmap <leader><leader> V
 vmap <Leader>y "+y
+
+" Autocompletion
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Colors & Theme Config
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
