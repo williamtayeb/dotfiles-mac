@@ -4,9 +4,11 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Notes path
-export NOTES=$HOME/Google\ Drive/notes
+export NOTES=$HOME/Drive/notes
 
 export PATH=$PATH:$HOME/bin
+
+export VAGRANT_HOME="$HOME/Drive/vagrant"
 
 # Alias
 alias typora="open -a typora"

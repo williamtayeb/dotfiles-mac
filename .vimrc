@@ -52,27 +52,46 @@ function! GetVimPlugs()
   Plug 'ycm-core/YouCompleteMe'
   Plug 'lyuts/vim-rtags'
   Plug 'leafgarland/typescript-vim'
+  Plug 'jparise/vim-graphql'
+  Plug 'sirver/ultisnips'
+  Plug 'honza/vim-snippets'
+  Plug 'lervag/vimtex'
 
   Plug 'joshdick/onedark.vim'
   Plug 'fxn/vim-monochrome'
   Plug 'lurst/austere.vim'
   Plug 'atelierbram/vim-colors_atelier-schemes'
   Plug 'ntk148v/vim-horizon'
+  Plug 'huyvohcmc/atlas.vim'
+  Plug 'vim-airline/vim-airline-themes'
+  Plug 'andreasvc/vim-256noir'
 endfunc
 
 call plug#begin('~/.vim/plugged')
 call GetVimPlugs()
 call plug#end()
 
+" Vim-tex
+let g:tex_flavor='latex'
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips"]
+
 " You Complete Me
-let g:ycm_key_list_select_completion=[]
-let g:ycm_key_list_previous_completion=[]
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
 
 " CtrlP
-let g:ctrlp_working_path_mode = 'c'
+let g:ctrlp_root_markers = ['.ctrlp']
 
 if executable('ag')
   " Use ag over grep
@@ -116,6 +135,6 @@ let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 set termguicolors
 set background=dark
 
-colorscheme Atelier_SulphurpoolDark
-let g:airline_theme='Atelier_SulphurpoolDark'
+colorscheme atlas
+let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
