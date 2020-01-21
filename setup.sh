@@ -1,124 +1,22 @@
 #!/bin/bash
 
-# Include helpers for colorized echo
-source ./lib/echos.sh
-
-bot "Hi! I'm going to setup your entire development environment. Hold on tight..."
+echo "Hi! I'm going to setup your entire environment. Hold on tight..."
 echo
 
-# Homebrew
-running "Installing homebrew"
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-ok
+# Install software
+./scripts/brew.sh
 
-# Watson Time Tracking
-running "Installing watson"
-brew update && brew install watson
-ok
+# Link dotfiles
+./scripts/symlinks.sh
 
-running "Installing tree"
-brew install tree
-ok
+# Install vim plug
+./scripts/vim.sh
 
-running "Installing rename"
-brew install rename
-ok
+# Install fonts
+./scripts/fonts.sh
 
-running "Installing zsh"
-brew install zsh
-ok
+# See our .zshrc changes
+source ~/.zshrc
 
-running "Installing node"
-brew install node
-ok
-
-running "Installing neovim"
-brew install neovim
-ok
-
-running "Installing the_silver_searcher"
-brew install the_silver_searcher
-ok
-
-# Adobe Source Code Pro
-running "Installing Adobe Source Code Pro"
-brew tap caskroom/fonts && brew cask install font-source-code-pro
-ok
-
-# Pure zsh theme
-running "Installing pure-prompt"
-npm install --global pure-prompt
-ok
-
-# Docker
-running "Installing Docker for Mac"
-brew cask install docker
-ok
-
-# Docker
-running "Installing GNU core utilities"
-brew install coreutils
-ok
-
-# ssh-vault
-running "Installing ssh-vault"
-brew install ssh-vault
-ok
-
-# Yarn
-running "Installing yarn"
-brew install yarn
-ok
-
-# IINA
-running "Installing IINA"
-brew cask install iina
-ok
-
-# tmux
-running "Installing tmux"
-brew install tmux
-ok
-
-# iterm2
-running "Installing iterm2"
-brew cask install iterm2
-ok
-
-# oh-my-zsh
-running "Installing oh-my-zsh"
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-ok
-
-
+echo "All done. Please kill this terminal."
 echo
-
-DOTFILES="$HOME/Repositories/dotfiles"
-
-# Configure symlinks
-running "Clearing default dotfiles"
-rm -rf $HOME/.vimrc
-rm -rf $HOME/.williamrc
-rm -rf $HOME/.gitignore
-rm -rf $HOME/.agignore
-rm -rf $HOME/.gitconfig
-rm -rf $HOME/.tmux.conf
-rm -rf $HOME/.config/nvim/init.vim
-ok
-
-running "Configuring symlinks"
-ln -s $DOTFILES/.williamrc $HOME/.williamrc
-ln -s $DOTFILES/.vimrc $HOME/.vimrc
-ln -s $DOTFILES/.gitignore $HOME/.gitignore
-ln -s $DOTFILES/.agignore $HOME/.agignore
-ln -s $DOTFILES/.gitconfig $HOME/.gitconfig
-ln -s $DOTFILES/.tmux.conf $HOME/.tmux.conf
-
-mkdir -p $HOME/.config/nvim
-ln -s $DOTFILES/.config/nvim/init.vim $HOME/.config/nvim/init.vim
-ok
-
-grep -qxF 'source ~/.williamrc' $HOME/.zshrc || echo 'source ~/.williamrc' >> $HOME/.zshrc
-
-echo
-bot "All done. Kill this terminal."

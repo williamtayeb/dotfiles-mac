@@ -16,6 +16,7 @@ alias ga="git add -A"
 alias gs="git status"
 alias vim="nvim"
 alias ctags="`brew --prefix`/bin/ctags"
+alias python=python3
 
 function cd {
   builtin cd "$@" && la
