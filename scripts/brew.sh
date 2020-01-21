@@ -24,17 +24,22 @@ brew cask install docker
 brew cask install iina
 brew cask install iterm2
 brew cask install rectangle
+brew cask install enpass
+brew cask install ticktick
+brew cask install discord
+brew cask install mysqlworkbench
+brew cask install pgadmin4
+brew cask install spotify
+brew cask install steam
+brew cask install veracrypt
+brew cask install visual-studio-code
+brew cask install adobe-acrobat-reader
+brew cask install michaelvillar-timer
 
 brew upgrade python
-
-# Adobe Source Code Pro
-brew tap caskroom/fonts && brew cask install font-source-code-pro
 
 # GNU core utilities
 brew install coreutils
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
-
-# Install latest pyenv python
-pyenv install $(pyenv install --list | sed 's/^  //' | grep '^\d' | grep --invert-match 'dev\|a\|b' | tail -1)
