@@ -22,6 +22,3 @@ mkdir -p $HOME/.config/nvim
 ln -s $DOTFILES/.config/nvim/init.vim $HOME/.config/nvim/init.vim
 
 grep -qxF 'source ~/.williamrc' $HOME/.zshrc || echo 'source ~/.williamrc' >> $HOME/.zshrc
-
-echo
-
