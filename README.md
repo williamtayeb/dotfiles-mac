@@ -32,5 +32,5 @@ To setup your private cloud and password manager:
 2. Launch enpass and restore data from a megasync backup
 
 To setup iterm2:
-1. Open iterm2 settings and modify the font to `SF Mono Powerline` with font size 11pt
-2. Import iterm2 schemes from ~/.dotfiles/schemes
+1. Open iterm2 settings and modify the font to `SF Mono Powerline` with font size `11pt`
+2. Import iterm2 schemes from `~/.dotfiles/schemes`
