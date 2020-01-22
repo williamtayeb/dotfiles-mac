@@ -15,6 +15,7 @@ brew install ssh-vault
 brew install yarn
 brew install tmux
 brew install pyenv
+brew install coreutils
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
 brew cask install firefox
@@ -36,11 +37,6 @@ brew cask install veracrypt
 brew cask install visual-studio-code
 brew cask install adobe-acrobat-reader
 brew cask install michaelvillar-timer
-
-brew upgrade python
-
-# GNU core utilities
-brew install coreutils
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended

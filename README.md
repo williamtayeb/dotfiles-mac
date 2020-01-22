@@ -14,15 +14,22 @@ cd ~/.dotfiles
 ./setup.sh
 ```
 
+The `setup.sh` script will automatically:
+
+- Install homebrew packages
+- Install mac software through cask
+- Install fonts
+- Setup vim plugins
+- Setup tmux plugins
+- Create symlinks for dotfiles within this package
+- Setup and configure pyenv to use the latest python version
+
+
 # Post Installation
 
 To setup your private cloud and password manager:
 1. Launch megasync and login
 2. Launch enpass and restore data from a megasync backup
-
-To setup plugins for tmux and vim:
-1. Open `~/.tmux.conf` in vim and press `Prefix + I` in order to download tmux plugins
-2. Open `~/.vimrc` in vim and execute `:PlugInstall` in order to download and install vim plugins
 
 To setup iterm2:
 1. Open iterm2 settings and modify the font to `SF Mono Powerline` with font size 11pt
