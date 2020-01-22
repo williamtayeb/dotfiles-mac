@@ -1,23 +1,29 @@
-# Before Installation
+The purpose of these dotfiles is to automatically configure a fresh macOS system with my personal development environment. These dotfiles are crafted from scratch for my personal use and is not intended to be used by anyone else.
 
-1. Generate a ssh-key on the new macOS system
-2. Sign into github.com and upload the generated ssh-key to your account
-3. Download and install git
+# Prerequisites
 
+1. Download the latest [Git for Mac installer](https://sourceforge.net/projects/git-osx-installer/files/).
+2. Follow the prompts to install Git.
+3. Open a terminal and verify the installation was successful by typing `git --version`
 
 # Installation
 
 ```
-git clone https://github.com/williamtayeb/dotfiles ~/.dotfiles
-cd into ~/.dotfiles
-execute setup.sh
+git clone https://github.com/williamtayeb/dotfiles-mac ~/.dotfiles
+cd ~/.dotfiles
+./setup.sh
 ```
 
-# After Installation
+# Post Installation
 
-1. Login to megasync
-2. Setup enpass from megasync backup
-3. Open .tmux.conf and press `Prefix + I` in order to download plugins
-4. Open .vimrc in vim and execute `:PlugInstall`
-5. Open iterm2 settings and set SF Mono Powerline as font with 11pt font size
-6. Import schemes from ~/.dotfiles/schemes into iterm2
+To setup your private cloud and password manager:
+1. Launch megasync and login
+2. Launch enpass and restore data from a megasync backup
+
+To setup plugins for tmux and vim:
+1. Open `~/.tmux.conf` in vim and press `Prefix + I` in order to download tmux plugins
+2. Open `~/.vimrc` in vim and execute `:PlugInstall` in order to download and install vim plugins
+
+To setup iterm2:
+1. Open iterm2 settings and modify the font to `SF Mono Powerline` with font size 11pt
+2. Import iterm2 schemes from ~/.dotfiles/schemes

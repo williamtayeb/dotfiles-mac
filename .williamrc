@@ -4,10 +4,9 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Alias
-alias typora="open -a typora"
+alias vim="nvim"
 alias ga="git add -A"
 alias gs="git status"
-alias vim="nvim"
 alias ctags="`brew --prefix`/bin/ctags"
 
 function cd {
