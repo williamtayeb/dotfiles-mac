@@ -28,7 +28,7 @@ set autochdir       " sets the cwd to whatever file is in view.
 set timeoutlen=1000 ttimeoutlen=0   " Eliminate delays on ESC in vim
 set backspace=indent,eol,start      " Proper backspace behavior
 
-" Leader is comma
+" Leader is space
 let mapleader=" "
 
 nnoremap <leader>a :Ack!<Space>
