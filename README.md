@@ -1,16 +1,23 @@
-There are no prerequisites for these dotfiles and will therefore work on a brand new macOS system. The following is a list of some of the noteworthy packages that are automatically installed and configured:
+# Before Installation
 
-* neovim
-* kitty
-* zsh
-* git
-* notes
+1. Generate a ssh-key on the new macOS system
+2. Sign into github.com and upload the generated ssh-key to your account
+3. Download and install git
+
 
 # Installation
 
 ```
 git clone https://github.com/williamtayeb/dotfiles ~/.dotfiles
-~/dotfiles/setup.sh
+cd into ~/.dotfiles
+execute setup.sh
 ```
 
-Please remember to execute `:PlugInstall` the first time that you execute nvim.
+# After Installation
+
+1. Login to megasync
+2. Setup enpass from megasync backup
+3. Open .tmux.conf and press `Prefix + I` in order to download plugins
+4. Open .vimrc in vim and execute `:PlugInstall`
+5. Open iterm2 settings and set SF Mono Powerline as font with 11pt font size
+6. Import schemes from ~/.dotfiles/schemes into iterm2
