@@ -1,5 +1,15 @@
 The purpose of these dotfiles is to automatically configure a fresh macOS system with my personal development environment. These dotfiles are crafted from scratch for my personal use and is not intended to be used by anyone else.
 
+This package will automatically:
+
+- Install homebrew packages
+- Install mac software through cask
+- Install fonts
+- Setup vim plugins
+- Setup tmux plugins
+- Create symlinks for dotfiles within this package
+- Setup and configure pyenv to use the latest python version
+
 # Prerequisites
 
 1. Download the latest [Git for Mac installer](https://sourceforge.net/projects/git-osx-installer/files/).
@@ -13,17 +23,6 @@ git clone https://github.com/williamtayeb/dotfiles-mac ~/.dotfiles
 cd ~/.dotfiles
 ./setup.sh
 ```
-
-The `setup.sh` script will automatically:
-
-- Install homebrew packages
-- Install mac software through cask
-- Install fonts
-- Setup vim plugins
-- Setup tmux plugins
-- Create symlinks for dotfiles within this package
-- Setup and configure pyenv to use the latest python version
-
 
 # Post Installation
 
