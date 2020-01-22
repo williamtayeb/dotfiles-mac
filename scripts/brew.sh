@@ -37,6 +37,8 @@ brew cask install veracrypt
 brew cask install visual-studio-code
 brew cask install adobe-acrobat-reader
 brew cask install michaelvillar-timer
+brew cask install virtualbox
+brew cask install vagrant
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
