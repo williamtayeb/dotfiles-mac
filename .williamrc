@@ -14,6 +14,20 @@ function cd {
   builtin cd "$@" && la
 }
 
+function dns {
+  DNS_OUTPUT="$(networksetup -getdnsservers Wi-Fi)"
+
+  if [[ $DNS_OUTPUT == *"8.8.8.8"* ]]; then
+    echo "Reseting DNS entries for Wi-Fi..."
+    networksetup -setdnsservers Wi-Fi empty
+  else
+    echo "Adding Google DNS entries for Wi-Fi..."
+    networksetup -setdnsservers Wi-Fi 8.8.8.8 8.8.4.4
+  fi
+
+  echo "Done!"
+}
+
 export NVM_DIR="$HOME/.nvm"
   [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
   [ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
