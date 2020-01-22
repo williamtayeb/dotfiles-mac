@@ -15,6 +15,7 @@ brew install ssh-vault
 brew install yarn
 brew install tmux
 brew install pyenv
+brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
 brew cask install firefox
 brew cask install megasync
