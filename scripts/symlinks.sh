@@ -10,6 +10,7 @@ rm -rf $HOME/.gitconfig
 rm -rf $HOME/.tmux.conf
 rm -rf $HOME/.mackup.cfg
 rm -rf $HOME/.config/nvim/init.vim
+rm -rf $HOME/.mackup
 
 echo "Configuring symlinks"
 ln -s $DOTFILES/.williamrc $HOME/.williamrc
@@ -22,5 +23,8 @@ ln -s $DOTFILES/.mackup.cfg $HOME/.mackup.cfg
 
 mkdir -p $HOME/.config/nvim
 ln -s $DOTFILES/.config/nvim/init.vim $HOME/.config/nvim/init.vim
+
+mkdir -p $HOME/.mackup
+ln -s $DOTFILES/.mackup/watson.cfg $HOME/.mackup/watson.cfg
 
 grep -qxF 'source ~/.williamrc' $HOME/.zshrc || echo 'source ~/.williamrc' >> $HOME/.zshrc
