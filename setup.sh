@@ -12,5 +12,8 @@ echo
 # See our .zshrc changes
 source ~/.zshrc
 
+# Setup golang environment
+./scripts/go.sh
+
 echo "All done. Please kill this terminal."
 echo

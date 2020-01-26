@@ -6,6 +6,11 @@ export EDITOR="$VISUAL"
 # For notes-cli
 export NOTES_PATH=$HOME/mega/notes
 
+# For golang environment
+export GOPATH="${HOME}/.go"
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
 # Alias
 alias vim="nvim"
 alias links="shiori"
