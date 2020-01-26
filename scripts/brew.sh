@@ -41,7 +41,6 @@ brew cask install michaelvillar-timer
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install typora
-brew cask install shiori
 
 # oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
