@@ -6,6 +6,9 @@ export EDITOR="$VISUAL"
 # For notes-cli
 export NOTES_PATH=$HOME/mega/notes
 
+# For shiori bookmark manager
+export SHIORI_DIR=$HOME/mega/utilities/shiori
+
 # For golang environment
 export GOPATH="${HOME}/.go"
 export GOROOT="$(brew --prefix golang)/libexec"
