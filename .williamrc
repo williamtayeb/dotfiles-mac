@@ -8,6 +8,7 @@ export NOTES_PATH=$HOME/mega/notes
 
 # Alias
 alias vim="nvim"
+alias links="shiori"
 alias ga="git add -A"
 alias gs="git status"
 alias ctags="`brew --prefix`/bin/ctags"
