@@ -18,6 +18,7 @@ brew install pyenv
 brew install coreutils
 brew install mackup
 brew install go
+brew install cmake
 brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
 brew cask install firefox
