@@ -2,4 +2,5 @@
 .AppleDouble
 .LSOverride
 id_rsa
-node_modules
+node_modules/
+.next/

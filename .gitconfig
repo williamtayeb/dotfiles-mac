@@ -3,4 +3,4 @@
     email = tayebwilliam@gmail.com
 [core]
     editor = nvim
-    excludefile = ~/.gitignore
+    excludesfile = ~/.gitignore
