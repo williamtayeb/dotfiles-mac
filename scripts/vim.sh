@@ -9,3 +9,7 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 # Install vim plugins
 vim +PlugInstall +qall > /dev/null
 nvim +PlugInstall +qall > /dev/null
+
+# Install YouCompleteMe
+python ~/.vim/plugged/YouCompleteMe/install.py
+python ~/.local/share/nvim/site/plugged/YouCompleteMe/install.py
