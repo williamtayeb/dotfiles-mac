@@ -43,7 +43,6 @@ brew cask install michaelvillar-timer
 brew cask install virtualbox
 brew cask install vagrant
 brew cask install typora
-brew cask install dotnet
 brew cask install dotnet-sdk
 
 # oh-my-zsh
