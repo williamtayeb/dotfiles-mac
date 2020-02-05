@@ -44,8 +44,6 @@ function! GetVimPlugs()
   Plug 'rking/ag.vim'
   Plug 'kien/ctrlp.vim'
   Plug 'scrooloose/nerdtree'
-  Plug 'pangloss/vim-javascript'
-  Plug 'mxw/vim-jsx'
   Plug 'elzr/vim-json'
   Plug 'vim-airline/vim-airline'
   Plug 'ajh17/VimCompletesMe'
@@ -56,6 +54,8 @@ function! GetVimPlugs()
   Plug 'sirver/ultisnips'
   Plug 'honza/vim-snippets'
   Plug 'lervag/vimtex'
+  Plug 'yuezk/vim-js'
+  Plug 'maxmellon/vim-jsx-pretty'
 
   Plug 'joshdick/onedark.vim'
   Plug 'fxn/vim-monochrome'
