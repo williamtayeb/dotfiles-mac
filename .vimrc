@@ -2,6 +2,7 @@
 filetype plugin indent on
 syntax on
 
+set noerrorbells
 set number 		      " Show current line number
 set relativenumber 	" Show relative line numbers
 
@@ -56,6 +57,8 @@ function! GetVimPlugs()
   Plug 'lervag/vimtex'
   Plug 'yuezk/vim-js'
   Plug 'maxmellon/vim-jsx-pretty'
+  Plug 'othree/csscomplete.vim'
+  Plug 'hotoo/jsgf.vim'
 
   Plug 'joshdick/onedark.vim'
   Plug 'fxn/vim-monochrome'
@@ -65,6 +68,8 @@ function! GetVimPlugs()
   Plug 'huyvohcmc/atlas.vim'
   Plug 'vim-airline/vim-airline-themes'
   Plug 'andreasvc/vim-256noir'
+  Plug 'agreco/vim-citylights'
+  Plug 'morhetz/gruvbox'
 endfunc
 
 call plug#begin('~/.vim/plugged')
@@ -90,6 +95,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:javascript_plugin_flow = 1
 let g:javascript_plugin_jsdoc = 1
 
+" NERDTree
+let NERDTreeMinimalUI = 1
+let NERDTreeShowLineNumbers = 1
+
 " CtrlP
 let g:ctrlp_root_markers = ['.ctrlp']
 
@@ -114,12 +123,19 @@ map - <C-W>-
 map + <C-W>+
 
 " Remaps
+nmap <leader>h :wincmd h<CR>
+nmap <leader>j :wincmd j<CR>
+nmap <leader>k :wincmd k<CR>
+nmap <leader>l :wincmd l<CR>
 nmap <leader>pf :CtrlP<CR>
-nmap <leader>ps :Ag<SPACE>
 nnoremap <Leader>pt :NERDTreeToggle<Enter>
 nnoremap <silent> <Leader>pv :NERDTreeFind<CR>
 nmap <leader><leader> V
 vmap <Leader>y "+y
+
+" YCM
+nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 
 " Autocompletion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -127,14 +143,15 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd BufEnter *.tsx set filetype=typescript
 
 " Colors & Theme Config
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
 set termguicolors
-set background=dark
+set background=light
 
-colorscheme atlas
-let g:airline_theme='minimalist'
+colorscheme gruvbox
+let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1

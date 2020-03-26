@@ -24,6 +24,10 @@ alias ga="git add -A"
 alias gs="git status"
 alias ctags="`brew --prefix`/bin/ctags"
 
+# Ongoing project aliases
+alias crowdups="cd ~/projects/consulting/crowdups"
+alias bachelor="cd ~/projects/bachelor/"
+
 function cd {
   builtin cd "$@" && la
 }
@@ -49,9 +53,9 @@ export NVM_DIR="$HOME/.nvm"
 echo
 
 # Configure terminal to start tmux by default
-if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
-    tmux attach -t default || tmux new -s default
-fi
+#if command -v tmux &> /dev/null && [ -z "$TMUX" ]; then
+#    tmux attach -t default || tmux new -s default
+#fi
 
 # Disable zsh update prompt (automatically update without asking)
 DISABLE_UPDATE_PROMPT=true
