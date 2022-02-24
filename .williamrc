@@ -24,10 +24,6 @@ alias ga="git add -A"
 alias gs="git status"
 alias ctags="`brew --prefix`/bin/ctags"
 
-# Ongoing project aliases
-alias crowdups="cd ~/projects/consulting/crowdups"
-alias bachelor="cd ~/projects/bachelor/"
-
 function cd {
   builtin cd "$@" && la
 }

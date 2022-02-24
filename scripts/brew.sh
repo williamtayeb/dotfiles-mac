@@ -4,47 +4,37 @@
 brew update
 
 brew install vim
-brew install watson
-brew install tree
-brew install rename
-brew install zsh
+brew install watson # Time tracking cli
+brew install rename # Useful for renaming multiple files
 brew install node
 brew install neovim
-brew install the_silver_searcher
-brew install ssh-vault
+brew install the_silver_searcher 
 brew install yarn
 brew install tmux
 brew install pyenv
 brew install coreutils
-brew install mackup
+brew install mackup # Keeps application settings in sync with cloud storage
 brew install go
 brew install cmake
 brew install mono
-brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb
 
-brew cask install firefox
-brew cask install megasync
-brew cask install alfred
-brew cask install transmission
-brew cask install docker
-brew cask install iina
-brew cask install iterm2
-brew cask install rectangle
-brew cask install enpass
-brew cask install ticktick
-brew cask install discord
-brew cask install mysqlworkbench
-brew cask install pgadmin4
-brew cask install spotify
-brew cask install steam
-brew cask install veracrypt
-brew cask install visual-studio-code
-brew cask install adobe-acrobat-reader
-brew cask install michaelvillar-timer
-brew cask install virtualbox
-brew cask install vagrant
-brew cask install typora
-brew cask install dotnet-sdk
-
-# oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" --unattended
+brew install --cask firefox
+brew install --cask megasync
+brew install --cask alfred
+brew install --cask transmission
+brew install --cask docker
+brew install --cask iina
+brew install --cask iterm2
+brew install --cask rectangle
+brew install --cask 1password
+brew install --cask ticktick
+brew install --cask discord
+brew install --cask mysqlworkbench
+brew install --cask pgadmin4
+brew install --cask spotify
+brew install --cask steam
+brew install --cask visual-studio-code
+brew install --cask adobe-acrobat-reader
+brew install --cask michaelvillar-timer
+brew install --cask typora
+brew install --cask dotnet-sdk
