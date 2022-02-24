@@ -24,10 +24,6 @@ alias ga="git add -A"
 alias gs="git status"
 alias ctags="`brew --prefix`/bin/ctags"
 
-function cd {
-  builtin cd "$@" && la
-}
-
 function dns {
   DNS_OUTPUT="$(networksetup -getdnsservers Wi-Fi)"
 

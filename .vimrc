@@ -47,8 +47,6 @@ function! GetVimPlugs()
   Plug 'scrooloose/nerdtree'
   Plug 'elzr/vim-json'
   Plug 'vim-airline/vim-airline'
-  Plug 'ajh17/VimCompletesMe'
-  Plug 'ycm-core/YouCompleteMe'
   Plug 'lyuts/vim-rtags'
   Plug 'leafgarland/typescript-vim'
   Plug 'jparise/vim-graphql'

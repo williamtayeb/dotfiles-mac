@@ -1,6 +1,9 @@
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> "$HOME/.zprofile"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 brew update
 
 brew install vim
@@ -34,7 +37,10 @@ brew install --cask pgadmin4
 brew install --cask spotify
 brew install --cask steam
 brew install --cask visual-studio-code
+
+softwareupdate --install-rosetta # Required for adobe acrobat reader
 brew install --cask adobe-acrobat-reader
+
 brew install --cask michaelvillar-timer
 brew install --cask typora
 brew install --cask dotnet-sdk
