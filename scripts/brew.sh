@@ -19,7 +19,6 @@ brew install coreutils
 brew install mackup # Keeps application settings in sync with cloud storage
 brew install go
 brew install cmake
-brew install mono
 
 brew install --cask firefox
 brew install --cask megasync
@@ -37,6 +36,7 @@ brew install --cask pgadmin4
 brew install --cask spotify
 brew install --cask steam
 brew install --cask visual-studio-code
+brew install --cask appcleaner
 
 softwareupdate --install-rosetta # Required for adobe acrobat reader
 brew install --cask adobe-acrobat-reader
