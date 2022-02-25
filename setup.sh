@@ -3,11 +3,12 @@
 echo "Hi! I'm going to setup your entire environment. Hold on tight..."
 echo
 
-#./scripts/brew.sh
+./scripts/brew.sh
 ./scripts/symlinks.sh
 ./scripts/pyenv.sh
 ./scripts/vim.sh
 ./scripts/fonts.sh
+./scripts/docker.sh
 
 # See our .zshrc changes
 source ~/.zshrc
