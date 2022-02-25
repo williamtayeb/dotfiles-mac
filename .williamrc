@@ -3,9 +3,6 @@ export LC_ALL=da_DK.UTF-8
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
-# Required in order to install YouCompleteMe
-export PYTHON_CONFIGURE_OPTS="--enable-framework"
-
 # For notes-cli
 export NOTES_PATH=$HOME/mega/notes
 
@@ -52,9 +49,8 @@ echo
 # Disable zsh update prompt (automatically update without asking)
 DISABLE_UPDATE_PROMPT=true
 
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
-
-# Enable vi mode in zsh
-bindkey -v
+# pyenv configuration
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"

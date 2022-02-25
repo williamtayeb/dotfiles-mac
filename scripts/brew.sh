@@ -14,11 +14,13 @@ brew install neovim
 brew install the_silver_searcher 
 brew install yarn
 brew install tmux
-brew install pyenv
 brew install coreutils
 brew install mackup # Keeps application settings in sync with cloud storage
 brew install go
 brew install cmake
+
+# Dependencies for pyenv python builds
+brew install openssl readline sqlite3 xz zlib
 
 brew install --cask firefox
 brew install --cask megasync
