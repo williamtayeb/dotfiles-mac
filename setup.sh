@@ -8,7 +8,6 @@ echo
 ./scripts/pyenv.sh
 ./scripts/vim.sh
 ./scripts/fonts.sh
-./scripts/docker.sh
 
 # See our .zshrc changes
 source ~/.zshrc

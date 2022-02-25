@@ -24,6 +24,9 @@ cd ~/.dotfiles
 ./setup.sh
 ```
 
+ - Open Docker Desktop app and follow the steps in order to configure it.
+ - Then execute `./docker.sh` in your terminal while being in the `~/.dotfiles` folder
+
 # Post Installation
 
 To setup iterm2:

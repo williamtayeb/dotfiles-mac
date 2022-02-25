@@ -54,3 +54,10 @@ export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
+
+# Ensure that shiori is not already running
+if ! lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null ; then
+  # Run shiori in the background
+  shiori serve &>/dev/null &
+  disown
+fi
