@@ -10,6 +10,7 @@ brew install vim
 brew install watson # Time tracking cli
 brew install rename # Useful for renaming multiple files
 brew install node
+brew install watchman
 brew install neovim
 brew install the_silver_searcher 
 brew install yarn
@@ -42,6 +43,10 @@ brew install --cask appcleaner
 
 softwareupdate --install-rosetta # Required for adobe acrobat reader
 brew install --cask adobe-acrobat-reader
+
+# Requirement for setting up React Native development environment
+# for Android
+brew install --cask adoptopenjdk/openjdk/adoptopenjdk11
 
 brew install --cask michaelvillar-timer
 brew install --cask typora

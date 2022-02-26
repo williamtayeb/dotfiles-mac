@@ -58,6 +58,5 @@ eval "$(pyenv init -)"
 # Ensure that shiori is not already running
 if ! lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null ; then
   # Run shiori in the background
-  shiori serve &>/dev/null &
-  disown
+  bash -c "nohup shiori serve &>/dev/null &"
 fi
