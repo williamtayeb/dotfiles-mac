@@ -1,25 +1,37 @@
-" Enabling filetype support provides filetype-specific indenting, syntax
-filetype plugin indent on
-syntax on
+" Use vim settings, rather than vi settings.
+" This must be first, because it changes other options as a side effect.
+set nocompatible
 
-set noerrorbells
+" The following line enables 'detection', 'plugin' and 'indent' at once.
+"
+" Detection: Each time a new or existing file is edited, Vim will try to 
+" recognize the type of the file and set the 'filetype' option.
+"
+" Plugin: When a file is edited its plugin file is loaded. (If there is 
+" one of the detected filetype)
+"
+" Indent: When a file is edited its indent file is loaded. (If there is
+" one for the detected filetype)
+filetype plugin indent on
+
+syntax on           " Enable syntax colors.
+
+set noerrorbells    " Don't beep
 set number 		      " Show current line number
 set relativenumber 	" Show relative line numbers
 
+set softtabstop=0	  
 set tabstop=2		    " Number of visual spaces per tab
-set softtabstop=0	  " Number of visual spaces per tab
-set shiftwidth=2	  " Indents will have a width of 4
+set shiftwidth=2	  " Indents will have a width of 2
 set expandtab		    " Tabs are spaces
 
 set autoindent      " Minimal automatic indenting for any filetype.
 set ruler           " Shows the current line number at the bottom.
-set wildmenu        " Great command-line completion, use '<Tab>' to
-                    " move around and '<CR>' to validate
+set wildmenu        " Make tab completion for files/buffers act like bash
 
 set showcmd		      " Show last command in the bottom bar
 set cursorline		  " Highlight current line
-
-"set lazyredraw	    " Redraw only when we need to
+set showmatch       " Show matching parenthesis
 
 set incsearch		    " Search as characters are entered
 set hlsearch		    " Highlight matches
@@ -29,42 +41,7 @@ set autochdir       " sets the cwd to whatever file is in view.
 set timeoutlen=1000 ttimeoutlen=0   " Eliminate delays on ESC in vim
 set backspace=indent,eol,start      " Proper backspace behavior
 
-" Leader is space
-let mapleader=" "
-
-nnoremap <leader>a :Ack!<Space>
-
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
-map <C-n> :NERDTreeToggle<CR>
-
 function! GetVimPlugs()
-  Plug 'rking/ag.vim'
-  Plug 'kien/ctrlp.vim'
-  Plug 'scrooloose/nerdtree'
-  Plug 'elzr/vim-json'
-  Plug 'vim-airline/vim-airline'
-  Plug 'leafgarland/typescript-vim'
-  Plug 'jparise/vim-graphql'
-  Plug 'honza/vim-snippets'
-  Plug 'lervag/vimtex'
-  Plug 'yuezk/vim-js'
-  Plug 'maxmellon/vim-jsx-pretty'
-  Plug 'othree/csscomplete.vim'
-  Plug 'hotoo/jsgf.vim'
-
-  Plug 'joshdick/onedark.vim'
-  Plug 'fxn/vim-monochrome'
-  Plug 'lurst/austere.vim'
-  Plug 'atelierbram/vim-colors_atelier-schemes'
-  Plug 'ntk148v/vim-horizon'
-  Plug 'huyvohcmc/atlas.vim'
-  Plug 'vim-airline/vim-airline-themes'
-  Plug 'andreasvc/vim-256noir'
-  Plug 'agreco/vim-citylights'
   Plug 'morhetz/gruvbox'
 endfunc
 
@@ -72,82 +49,5 @@ call plug#begin('~/.vim/plugged')
 call GetVimPlugs()
 call plug#end()
 
-" Vim-tex
-let g:tex_flavor='latex'
-
-" UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-let g:UltiSnipsSnippetDirectories=["~/.vim/UltiSnips"]
-
-" You Complete Me
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
-let g:javascript_plugin_flow = 1
-let g:javascript_plugin_jsdoc = 1
-
-" NERDTree
-let NERDTreeMinimalUI = 1
-let NERDTreeShowLineNumbers = 1
-
-" CtrlP
-let g:ctrlp_root_markers = ['.ctrlp']
-
-if executable('ag')
-  " Use ag over grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  " bind K to grep word under cursor
-  nnoremap K :grep! "\b<C-R><C-W>\b"<CR>:cw<CR>
-  "command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-  nnoremap \ :Ag<SPACE>
-endif
-
-" For simple sizing of splits.
-map - <C-W>-
-map + <C-W>+
-
-" Remaps
-nmap <leader>h :wincmd h<CR>
-nmap <leader>j :wincmd j<CR>
-nmap <leader>k :wincmd k<CR>
-nmap <leader>l :wincmd l<CR>
-nmap <leader>pf :CtrlP<CR>
-nnoremap <Leader>pt :NERDTreeToggle<Enter>
-nnoremap <silent> <Leader>pv :NERDTreeFind<CR>
-nmap <leader><leader> V
-vmap <Leader>y "+y
-
-" YCM
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
-
-" Autocompletion
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd BufEnter *.tsx set filetype=typescript
-
-" Colors & Theme Config
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-
-set termguicolors
-set background=light
-
+set background=dark
 colorscheme gruvbox
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1

@@ -60,3 +60,21 @@ if ! lsof -Pi :8080 -sTCP:LISTEN -t >/dev/null ; then
   # Run shiori in the background
   bash -c "nohup shiori serve &>/dev/null &"
 fi
+
+# Android studio config
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+# Load version control information
+autoload -Uz vcs_info
+precmd() { vcs_info }
+
+# Format the vcs_info_msg_0_ variable
+zstyle ':vcs_info:git:*' formats '[%b]'
+ 
+# Set up the prompt (with git branch name)
+setopt PROMPT_SUBST
+PROMPT='%n ${PWD/#$HOME/~} ${vcs_info_msg_0_} > '
